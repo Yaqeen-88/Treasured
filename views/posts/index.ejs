@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Posts</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>All Posts</h1>
+
+  <button><a href="/posts/new">+ Add New Post</a></button>
+
+  <ul>
+    <% if (posts.length === 0) { %>
+      <p>No posts yet.</p>
+    <% } else { %>
+      <% posts.forEach(post => { %>
+        <li>
+          <h2><%= post.title %></h2>
+
+          <% if (post.image) { %>
+            <img 
+              src="data:image/jpeg;base64,<%= post.image %>" 
+              alt="<%= post.title %>" 
+              style="max-width:200px; border-radius:10px; display:block; margin-bottom:10px;"
+            >
+          <% } %>
+
+          <% if (post.description) { %>
+            <p><%= post.description %></p>
+          <% } %>
+
+          <p><strong>Category:</strong> <%= post.category %></p>
+        </li>
+        <hr>
+      <% }) %>
+    <% } %>
+  </ul>
+</body>
+</html>

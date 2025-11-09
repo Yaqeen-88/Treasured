@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create New Post</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>Create New Post</h1>
+
+  <form action="/posts" method="POST" enctype="multipart/form-data">
+
+    <div>
+      <label for="title">Title</label>
+      <input type="text" name="title" id="title" required>
+    </div>
+<br><br><br><br>
+    <div>
+      <label for="image">Upload Image</label>
+      <input type="file" name="image" id="image" accept="image/*">
+    </div>
+<br><br><br><br>
+    <div>
+      <label for="description">Description</label>
+      <textarea name="description" id="description" rows="3"></textarea>
+    </div>
+<br><br><br><br>
+    <div>
+      <label for="category">Category</label>
+      <select name="category" id="category" required>
+        <option value="Songs">Songs</option>
+        <option value="Pets">Pets</option>
+        <option value="Moment">Moment</option>
+        <option value="Food">Food</option>
+        <option value="Quote">Quote</option>
+        <option value="Movies">Movies</option>
+        <option value="Shows">Shows</option>
+      </select>
+    </div>
+<br><br><br><br>
+    <button type="submit">Create Post</button> <a href="/posts">Back to Posts</a>
+  </form>
+
+</body>
+</html>
