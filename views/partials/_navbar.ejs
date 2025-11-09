@@ -1,0 +1,13 @@
+<nav>
+  <%if (user) {%>
+  <h1> Treasured </h1>
+  <a href="/users/profile">Profile</a>
+  <a href="/posts">View all posts</a>
+  <a href="/auth/sign-out">Sign Out</a>
+
+  <%} else {%>
+  <h1> Treasured </h1>
+  <a href="/auth/sign-up">Sign Up</a>
+  <a href="/auth/sign-in">Sign In</a>
+  <% } %>
+</nav>

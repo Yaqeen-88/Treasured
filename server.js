@@ -9,7 +9,7 @@ const methodOverride = require("method-override");
 const morgan = require("morgan");
 
 
-const postRouter = require("./routes/posts"); 
+const postRouter = require("./routes/posts");
 
 
 const port = process.env.PORT || 3000;
@@ -29,13 +29,12 @@ mongoose.connection.on("error", (err) => {
 
 
 app.use(express.urlencoded({ extended: false }))
-app.use(methodOverride("_method")); 
-app.use(morgan("dev")); 
+app.use(methodOverride("_method"));
+app.use(morgan("dev"));
 
-app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
-  res.redirect("/posts"); 
+  res.redirect("/posts");
 });
 
 app.use("/posts", postRouter);

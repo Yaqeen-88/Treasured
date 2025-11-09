@@ -19,7 +19,7 @@ const postSchema = new mongoose.Schema({
   },
   category: {
     type: String,
-    enum: ['Songs', 'Movies', 'Pets', 'Moment', 'Food','Quote', 'shows'], 
+    enum: ['songs', 'movies','shows', 'pets', 'moment', 'food','quote'],
     required: true,
   },
   likedBy: [
@@ -28,7 +28,7 @@ const postSchema = new mongoose.Schema({
       ref: 'User',
     }
   ],
-  userId: {
+  creator: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true,
