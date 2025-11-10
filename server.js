@@ -9,6 +9,8 @@ const morgan = require("morgan");
 
 
 const postRouter = require("./routes/posts");
+const commentRouter = require("./routes/comments")
+
 const { connected } = require("process");
 
 
@@ -34,7 +36,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/posts", postRouter);
-
+app.use("/posts/:postID/comments", commentRouter)
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

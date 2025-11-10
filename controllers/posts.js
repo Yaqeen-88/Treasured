@@ -31,7 +31,7 @@ exports.post_create_post = [
         description: req.body.description,
         category: req.body.category,
         image: imageBase64,
-        userId: req.session?.user?._id || new mongoose.Types.ObjectId(),
+        creator: req.session?.user?._id || new mongoose.Types.ObjectId(),
       });
       res.redirect('/posts');
 
