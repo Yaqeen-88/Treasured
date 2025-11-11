@@ -4,16 +4,20 @@ const express = require("express");
 const app = express();
 const path = require('path');
 const mongoose = require("mongoose");
+
+app.use(express.json())
+
+// Middleware
 const methodOverride = require("method-override");
 const morgan = require("morgan");
 const session = require('express-session');
+const passUserToView = require('./middleware/pass-user-to-view');
+const isSignedIn = require('./middleware/is-signed-in');
 const MongoStore = require('connect-mongo')
-const isSignedIn = require('./middleware/is-signed-in.js')
-const passUserToView = require('./middleware/pass-user-to-view.js')
 const authRouter = require('./routes/auth.js')
 
 
-const postRouter = require("./routes/posts"); 
+const postRouter = require("./routes/posts");
 const { connected } = require("process");
 
 
@@ -27,9 +31,9 @@ mongoose.connection.on('connected', () => {
   console.log(`connected to mongoDB ${mongoose.connection.name}.`)
 })
 
-app.use(express.urlencoded({ extended: false }))
-app.use(methodOverride("_method")); 
-app.use(morgan("dev")); 
+app.use(express.urlencoded({ extended: true }))
+app.use(methodOverride("_method"));
+app.use(morgan("dev"));
 
 app.use(
   session({
@@ -42,7 +46,7 @@ app.use(
   })
 )
 
-app.use(passUserToView)
+app.use(passUserToView);
 
 
 
@@ -50,6 +54,7 @@ app.get('/', (req, res) => {
   res.render('index.ejs')
 })
 
+app.use(isSignedIn)
 app.use("/posts", postRouter);
 
 app.use('/auth', authRouter)
