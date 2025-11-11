@@ -7,7 +7,7 @@ const upload = multer({ storage });
 
 
 
-// Home page
+// Show all posts
 exports.post_index_get = async (req, res) => {
   const posts = await Post.find();
   res.render('posts/index.ejs', { posts });
@@ -31,12 +31,14 @@ exports.post_create_post = [
         description: req.body.description,
         category: req.body.category.toLowerCase(),
         image: imageBase64,
-        userId: req.session?.user?._id || new mongoose.Types.ObjectId(),
+        creator: req.session?.user?._id || new mongoose.Types.ObjectId(),
       });
       res.redirect('/posts');
-
+    
   }
 ];
+
+
 
 // Show post
 exports.post_show_get = async (req, res) => {
