@@ -7,17 +7,11 @@
 </head>
 <body>
   <h1>Edit Post</h1>
-  <form action="/posts<%= post._id %>?_method=PUT"" method="POST" enctype="multipart/form-data">
+  <form action="/posts/<%= post._id %>?_method=PUT" method="POST">
 
     <div>
       <label for="title">Title</label>
       <input type="text" name="title" id="title" value="<%= post.title %>" required>
-    </div>
-<br><br><br><br>
-
-    <div>
-      <label for="image">Change Image (optional)</label>
-      <input type="file" name="image" id="image" accept="image/*">
     </div>
 <br><br><br><br>
 

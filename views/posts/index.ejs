@@ -18,7 +18,9 @@
     <% } else { %>
       <% posts.forEach(post => { %>
         <li>
+          <a href="/posts/<%= post._id%>">
           <h2><%= post.title %></h2>
+          </a>
 
           <% if (post.image) { %>
             <img

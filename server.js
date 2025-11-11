@@ -6,6 +6,8 @@ const app = express();
 const path = require('path');
 const mongoose = require("mongoose");
 
+app.use(express.json())
+
 // Middleware
 const methodOverride = require("method-override");
 const morgan = require("morgan");
@@ -28,7 +30,7 @@ mongoose.connection.on('connected', () => {
   console.log(`connected to mongoDB ${mongoose.connection.name}.`)
 })
 
-app.use(express.urlencoded({ extended: false }))
+app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride("_method"));
 app.use(morgan("dev"));
 
@@ -55,6 +57,7 @@ app.get("/", (req, res) => {
 
 })
 
+app.use(isSignedIn)
 app.use("/posts", postRouter);
 
 
