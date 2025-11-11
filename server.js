@@ -5,12 +5,16 @@ const express = require("express");
 const app = express();
 const path = require('path');
 const mongoose = require("mongoose");
+
+// Middleware
 const methodOverride = require("method-override");
 const morgan = require("morgan");
 const session = require('express-session');
+const passUserToView = require('./middleware/pass-user-to-view');
+const isSignedIn = require('./middleware/is-signed-in');
 
 
-const postRouter = require("./routes/posts"); 
+const postRouter = require("./routes/posts");
 const { connected } = require("process");
 
 
@@ -25,8 +29,8 @@ mongoose.connection.on('connected', () => {
 })
 
 app.use(express.urlencoded({ extended: false }))
-app.use(methodOverride("_method")); 
-app.use(morgan("dev")); 
+app.use(methodOverride("_method"));
+app.use(morgan("dev"));
 
 app.use(
   session({
@@ -36,6 +40,7 @@ app.use(
   })
 )
 
+app.use(passUserToView);
 
 app.get('/', async (req,res) => {
   res.render('index.ejs', {
@@ -46,7 +51,7 @@ app.get('/', async (req,res) => {
 app.use('/auth', authController)
 
 app.get("/", (req, res) => {
-  res.redirect("/posts"); 
+  res.redirect("/posts");
 
 })
 
