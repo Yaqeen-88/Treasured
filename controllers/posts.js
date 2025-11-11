@@ -29,7 +29,7 @@ exports.post_create_post = [
       await Post.create({
         title: req.body.title,
         description: req.body.description,
-        category: req.body.category,
+        category: req.body.category.toLowerCase(),
         image: imageBase64,
         userId: req.session?.user?._id || new mongoose.Types.ObjectId(),
       });
@@ -44,4 +44,49 @@ exports.post_show_get = async (req, res) => {
   const userHasLiked = post.likedBy.some((user) =>
   user.equals(req.session.user._id));
   res.render('posts/show.ejs', {post , userHasLiked})
+}
+
+// Edit post
+exports.post_edit_get = async (req, res) => {
+const currentPost = await Post.findById(req.params.postId);
+res.render('posts/edit.ejs', { post: currentPost});
+}
+
+// Update the post
+exports.post_update_put = async (req, res) => {
+  const currentPost = await Post.findById(req.params.postId);
+  if (currentPost.creator.equals(req.session.user._id)) {
+    await currentPost.updateOne(req.body);
+    res.redirect('/posts');
+  } else {
+    res.send("You can't do that silly :)");
+  }
+
+}
+
+// Delete post
+exports.post_delete_delete = async (req, res) => {
+  const post = await Post.findById(req.params.postId);
+  if(post.creator.equals(req.session.user._id)){
+    await post.deleteOne();
+    res.redirect('/posts')
+  } else {
+    res.send("You can't do that silly :)")
+  }
+}
+
+// Adding like
+exports.like_create_post = async (req, res) => {
+  await Post.findByIdAndUpdate(req.params.userId, {
+    $push : {likedBy: req.params.userId}
+  });
+  res.redirect(`/posts/${req.params.postId}`)
+}
+
+// Removing like
+exports.like_delete_delete = async (req, res) => {
+  await Post.findByIdAndUpdate(req.params.postId, {
+    $pull : {likedBy: req.params.userId}
+  });
+  res.redirect(`/posts/${req.params.postId}`)
 }
