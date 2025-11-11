@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Edit Post</h1>
+  <form action="/posts<%= post._id %>?_method=PUT"" method="POST" enctype="multipart/form-data">
+
+    <div>
+      <label for="title">Title</label>
+      <input type="text" name="title" id="title" value="<%= post.title %>" required>
+    </div>
+<br><br><br><br>
+
+    <div>
+      <label for="image">Change Image (optional)</label>
+      <input type="file" name="image" id="image" accept="image/*">
+    </div>
+<br><br><br><br>
+
+    <div>
+      <label for="description">Description</label>
+      <textarea name="description" id="description" rows="3"><%= post.description %></textarea>
+    </div>
+<br><br><br><br>
+
+    <div>
+      <label for="category">Category</label>
+      <select name="category" id="category" required>
+        <option value="Songs" <%= post.category === 'songs'  ? 'selected' : '' %>>Songs</option>
+
+        <option value="Pets" <%= post.category === 'pets'  ? 'selected' : '' %>>Pets</option>
+
+        <option value="Moment" <%= post.category === 'moment'  ? 'selected' : '' %>>Moment</option>
+
+        <option value="Food" <%= post.category === 'food'  ? 'selected' : '' %>>Food</option>
+
+        <option value="Quote" <%= post.category === 'quote'  ? 'selected' : '' %>>Quote</option>
+
+        <option value="Movies" <%= post.category === 'movies'  ? 'selected' : '' %>>Movies</option>
+
+        <option value="Shows" <%= post.category === 'shows'  ? 'selected' : '' %>>Shows</option>
+
+      </select>
+    </div>
+<br><br><br><br>
+
+    <button type="submit">Update Post</button> <a href="/posts">Back to Posts</a>
+  </form>
+</body>
+</html>

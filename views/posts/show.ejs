@@ -4,9 +4,69 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/styles.css">
-  <title>Document</title>
+  <title><%= post.title %></title>
 </head>
 <body>
+  <%- include('../partials/_navbar.ejs') %>
 
+  <div class= "show-page-container">
+    <%if (post.category !== post.image && 'quote') { %>
+      <div class="show-img">
+        <img src="<%= post.image %>" alt="<%= post.title %>"/>
+      </div>
+    <% } %>
+
+    <div class= "show-info-container">
+      <div class="show-header">
+        <h1><%= post.title %></h1>
+        <p><b>Category:</b> <%= post.category %></p>
+      </div>
+
+      <div class= "show-details-container">
+        <p><b>By:</b>
+        <%= post.creator.username && post.creator ? post.creator.username : "Unknown" %>
+        </p>
+        <p> <%= post.description %></p>
+      </div>
+
+      <div class="likes-container">
+        <div class="likes-count">
+          <h3> <%= post.likedBy.length %> Likes</h3>
+        </div>
+
+        <% if (user) { %>
+          <div class="like-btn-container">
+            <%if (hasLiked) { %>
+            <form action="/posts/<%= post._id %>/likes/<%= user._id %>?_method=DELETE" method="POST">
+              <button type="submit">Unlike</button>
+            </form>
+            <% } else { %>
+            <form action="/posts/<%= post._id %>/likes/<%= user._id %>" method="POST">
+              <button type="submit">Like</button>
+            </form>
+            <% } %>
+          </div>
+        <% } else { %>
+          <p>Log in to like this post.</p>
+        <% } %>
+      </div>
+
+      <div class="comments-container">
+        <a href="/posts/ <%= post._id %>/comments">
+          <%= post.comments ? post.comments.length : 0 %> Comments
+        </a>
+      </div>
+
+      <% if (post.creator._id.equals(user._id)) { %>
+      <div>
+        <p>Posted by you</p>
+        <a href="/posts/<%= post._id %>/edit">Edit</a>
+        <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+          <button type="submit">Delete</button>
+        </form>
+      </div>
+      <% } %>
+    </div>
+  </div>
 </body>
 </html>
