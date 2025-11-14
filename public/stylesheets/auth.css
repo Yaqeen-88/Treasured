@@ -1,0 +1,11 @@
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: linear-gradient(135deg, #7b2cbf, #9d4edd);
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+

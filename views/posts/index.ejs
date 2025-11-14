@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
+  <%- include('../partials/_navbar.ejs') %>
   <h1>All Posts</h1>
 
   <button><a href="/posts/new">+ Add New Post</a></button>
@@ -17,12 +18,12 @@
     <% } else { %>
       <% posts.forEach(post => { %>
         <li>
-          <h2><%= post.title %></h2>
+          <h2><a href="/posts/<%= post._id %>"><%= post.title %></a></h2>
 
           <% if (post.image) { %>
-            <img 
-              src="data:image/jpeg;base64,<%= post.image %>" 
-              alt="<%= post.title %>" 
+            <img
+              src="data:image/jpeg;base64,<%= post.image %>"
+              alt="<%= post.title %>"
               style="max-width:200px; border-radius:10px; display:block; margin-bottom:10px;"
             >
           <% } %>
@@ -32,6 +33,8 @@
           <% } %>
 
           <p><strong>Category:</strong> <%= post.category %></p>
+          <!-- change to postID -->
+          <a href="/posts/6910b77224318adbf6796315/comments/new">add a comment</a>
         </li>
         <hr>
       <% }) %>
