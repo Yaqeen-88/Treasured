@@ -1,9 +1,7 @@
-const commentCTRL = require('../controllers/comments')
-const router = require('express').Router()
+const commentCTRL = require("../controllers/comments")
+const router = require("express").Router({ mergeParams: true })
 
-router.get('/', commentCTRL.comment_index_get)
-router.get('/new', commentCTRL.comment_new_get)
-router.post('/', commentCTRL.comment_new_post)
-router.delete('/:commentID', commentCTRL.comment_delete)
+router.post("/", commentCTRL.comment_new_post)
+router.delete("/:commentID", commentCTRL.comment_delete)
 
 module.exports = router

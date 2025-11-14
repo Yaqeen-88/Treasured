@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="/stylesheets/showEdit.css" />
+<link rel="stylesheet" href="/stylesheets/style.css">
   <title><%= post.title %></title>
 </head>
 <body>
@@ -56,20 +57,30 @@
       </div>
 
       <div class="comments-container">
-        <a class="round-btn comment-btn" href="/posts/<%= post._id %>/comments">
-          <span class="comment-icon"></span>
-          <%= post.comments ? post.comments.length : 0 %> Comments
-        </a>
-      </div>
 
+          <form action="/posts/<%= post._id %>/comments" method="POST">
+    <input type="text" name="description" id="description">
+    <button type="submit" class="comment-btn">Add comment</button>
+    </form>
+        <% postComments.forEach(comment => { %>
+          <div class="Comment">
+    <h4><%= comment.description %></h4>
+    <form action="/posts/<%= comment.postID._id %>/comments/<%= comment._id%>?_method=DELETE" method="POST">
+      <button type="submit">Delete</button>
+    </form>
+    </div>
+  <% }); %>
+
+          </div>
       <% if (post.creator._id.equals(user._id)) { %>
       <div class="creator-container" style="margin-top: 10px;">
         <a href="/posts/<%= post._id %>/edit">Edit</a>
         <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
           <button type="submit">Delete</button>
         </form>
-      </div>
       <% } %>
+      </div>
+      </div>
     </div>
   </div>
 </body>
