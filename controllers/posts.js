@@ -4,7 +4,7 @@ const Post = require("../models/post")
 const multer = require("multer")
 const storage = multer.memoryStorage()
 const upload = multer({ storage })
-
+const Comment = require("../models/comment")
 // Show all posts
 exports.post_index_get = async (req, res) => {
   const posts = await Post.find()
@@ -24,7 +24,6 @@ exports.post_create_post = [
     if (req.file) {
       imageBase64 = req.file.buffer.toString("base64")
     }
-    console.log(req.session.user._id);
     await Post.create({
       title: req.body.title,
       description: req.body.description,
@@ -32,21 +31,19 @@ exports.post_create_post = [
       image: imageBase64,
       creator: req.session.user._id,
     })
-
     res.redirect("/posts")
   },
-];
-
-
-
+]
 
 // Show post
 exports.post_show_get = async (req, res) => {
   const post = await Post.findById(req.params.postId).populate("creator")
-  const userHasLiked = post.likedBy.some((user) =>
-    user.equals(req.session.user._id)
-  )
-  res.render("posts/show.ejs", { post, userHasLiked })
+
+  const userHasLiked = post.likedBy.some((user) => user.equals(req.session.user._id))
+
+  const postComments = await Comment.find({postID: req.params.postId,}).populate('postID', 'userID')
+
+  res.render("posts/show.ejs", { post, userHasLiked, postComments })
 }
 
 // Edit post
