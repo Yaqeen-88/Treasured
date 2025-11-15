@@ -6,8 +6,11 @@ body{
   flex-direction: column;
   height: 100vh;
   width: 100vw;
-  background-color: white;
+  background-color: #fff;
+  padding: 20px;
+
 }
+
 
 button {
   border: none;
@@ -25,3 +28,42 @@ button:hover {
   background-color: black;
   color: white;
 }
+
+
+/* Style for nav */
+nav {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  background-color: #7f6f7e;
+  padding: 15px 30px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+
+
+nav h1 {
+  color: #fff;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 1rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+nav a:hover {
+  color: #ece7e7;
+  transform: scale(1.05);
+}
+
+nav .nav-links {
+  display: flex;
+  align-items: center;
+}
+

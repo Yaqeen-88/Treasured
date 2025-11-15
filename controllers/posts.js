@@ -38,7 +38,7 @@ exports.post_create_post = [
 // Show post
 exports.post_show_get = async (req, res) => {
   const post = await Post.findById(req.params.postId).populate("creator")
-
+  
   const userHasLiked = post.likedBy.some((user) => user.equals(req.session.user._id))
 
   const postComments = await Comment.find({postID: req.params.postId,}).populate('postID', 'userID')

@@ -4,30 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Create New Post</title>
-<link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/home.css" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
   <%- include('../partials/_navbar.ejs') %>
-  <h1>Create New Post</h1>
 
-  <form action="/posts" method="POST" enctype="multipart/form-data">
+  <div class="form-card">
+    <h1>Create New Post</h1>
 
-    <div>
+    <form action="/posts" method="POST" enctype="multipart/form-data">
       <label for="title">Title</label>
       <input type="text" name="title" id="title" required>
-    </div>
-<br><br><br><br>
-    <div>
-      <label for="image">Upload Image</label>
-      <input type="file" name="image" id="image" accept="image/*">
-    </div>
-<br><br><br><br>
-    <div>
-      <label for="description">Description</label>
-      <textarea name="description" id="description" rows="3"></textarea>
-    </div>
-<br><br><br><br>
-    <div>
+
       <label for="category">Category</label>
       <select name="category" id="category" required>
         <option value="Songs">Songs</option>
@@ -37,11 +26,20 @@
         <option value="Quote">Quote</option>
         <option value="Movies">Movies</option>
         <option value="Shows">Shows</option>
+        <option value="Spot">Spot</option>
       </select>
-    </div>
-<br><br><br><br>
-    <button type="submit">Create Post</button> <a href="/posts">Back to Posts</a>
-  </form>
 
+      <label for="image">Upload Image</label>
+      <input type="file" name="image" id="image" accept="image/*">
+
+      <label for="description">Description</label>
+      <textarea name="description" id="description" rows="3"></textarea>
+
+      <label for="Url">Url</label>
+      <input type="url" name="Url" id="Url">
+
+      <button type="submit">Create Post</button>
+    </form>
+  </div>
 </body>
 </html>
