@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome, <%= user.username %>!</h1>
+        <nav>
+            <a href="/">Home</a> |
+            <a href="/auth/sign-out">Sign Out</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Avatar</h2>
+            <img
+            src="<%= user.avatar || '/image/defult-avatar.png' %>"
+            alt="profile picture"
+            class="profile-avatar"
+            >
+        </section>
+
+        <section class="profile-info">
+            <h2>Profile Informaition</h2>
+            <p><strong>Username:</strong> <%= user.username %></p>
+            <p><strong>Email:</strong> <%= user.email%></p>
+        </section>
+
+        <section class="profile-bio">
+            <h2>Bio</h2>
+            <p>
+                <% if (user.bio) { %>
+                    <%= user.bio %>
+                    <% } else { %>
+                        No bio yet.
+                        <% } %>
+            </p>
+        </section>
+
+        <section class="profile-stats">
+            <h2>Your Activity</h2>
+            <p><strong>Posts created:</strong> <%= postCount %></p>
+        </section>
+    </main>
+</body>
+</html>
