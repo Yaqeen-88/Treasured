@@ -7,7 +7,11 @@ exports.profile_index_get = async (req,res) => {
 }
 
 exports.profile_edit_get = async (req,res) => {
-  const account = await User.findById(req.session.user._id)
-  console.log(account)
-  res.render('profile/edit.ejs', account)
+  const account = await User.findById(req.params.userID)
+  res.render('profile/edit.ejs', {account})
+}
+
+exports.profile_edit_post = async (req,res) => {
+  const account = await User.findByIdAndUpdate(req.params.userID, {$push: req.body})
+  res.redirect(`/users/profile/${req.params.userID}`)
 }
