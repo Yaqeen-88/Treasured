@@ -28,10 +28,10 @@
 
 .show-info-container {
   display: flex;
+  background-color: #c1bfc1;
   flex-direction: column;
   align-items: center;
   width: 55%;
-  background-color: #ffffff;
   border: 1px solid #d1d1d1;
   border-radius: 14px;
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.05) ;
@@ -65,7 +65,7 @@
   padding: 20px 30px;
   width: 100%;
   margin: 20px 0;
-  background-color: #fafafa;
+  background-color: #e7e1e3;
 }
 
 .show-details-container h3 {
@@ -114,7 +114,7 @@
   text-decoration: none;
   font-weight: 600;
   border: 1px solid #e2e6f0;
-  background-color: #f6f7fb;
+  background-color: #c1bfc1;
   color: #2a3644;
   cursor: pointer;
 }

@@ -4,9 +4,9 @@ body{
   font-family: "Quicksand", sans-serif;
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  width: 100vw;
-  background-color: #fff;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background: linear-gradient(225deg,rgba(239, 239, 230, 1) 0%, rgba(203, 156, 156, 1) 1%, rgba(83, 107, 121, 1) 81%);
   padding: 20px;
   max-width: 100%;
 
@@ -19,14 +19,15 @@ button {
   color: white;
   font-weight: bold;
   text-decoration: none;
-  background-color: #274c9c;
+ background-color: #afacaf;
   padding: 7px 15px;
   margin: 10px 0;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: black;
+  background-color: rgb(157, 155, 155);
+  opacity: 60%;
   color: white;
 }
 
@@ -36,7 +37,6 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #7f6f7e;
   padding: 15px 30px;
   border-radius: 10px;
   margin-bottom: 40px;
