@@ -10,26 +10,25 @@
 <body>
 
     <%- include('./partials/_navbar.ejs') %>
-  
 
-    <div class="container"> 
-        
-    <h1 class="main-title">Welcome to Traesured</h1>
+
+    <div class="container">
+
+    <h1 class="main-title">Welcome to Treasured</h1>
 
     <div class="Welcome-box">
     <% if (user) { %>
         <h1 class="Welcome-text">Welcome, <%= user.username %>!</h1>
-
             <a class="btn primary-btn" href="/auth/sign-out">Sign out</a>
     <% } else { %>
         <h2 class="Welcome-text">Welcome, Guest</h2>
         <p class="action-links">
-            <a class="btn primary-btn" href="/auth/sign-up">Sign up</a> 
+            <a class="btn primary-btn" href="/auth/sign-up">Sign up</a>
             <span class="or"> or</span>
             <a class="btn secondary-btn" href="/auth/sign-in">Sign in</a>
         </p>
         <% } %>
-     </div>
+    </div>
     </div>
 </body>
 </html>

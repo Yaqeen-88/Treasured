@@ -8,6 +8,7 @@ body{
   background-repeat: no-repeat;
   background: linear-gradient(225deg,rgba(239, 239, 230, 1) 0%, rgba(203, 156, 156, 1) 1%, rgba(83, 107, 121, 1) 81%);
   padding: 20px;
+  max-width: 100%;
 
 }
 
@@ -34,7 +35,7 @@ button:hover {
 /* Style for nav */
 nav {
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
   border-radius: 10px;

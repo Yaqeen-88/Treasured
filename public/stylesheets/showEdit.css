@@ -10,7 +10,6 @@
 }
 
 .show-img {
-  background-color: #dbe2ef;
   height: 80%;
   width: 40%;
   display: flex;
@@ -22,8 +21,8 @@
 }
 
 .show-img img {
-  width: 100%;
-  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: cover;
 }
 
@@ -266,6 +265,7 @@ textarea {
   color: white;
 }
 
+/* Comment section */
 .Comment{
   display: flex;
 
@@ -276,3 +276,63 @@ textarea {
   justify-content: right;
 }
 
+.comment-input {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+
+.comment-btn {
+  padding: 0.6rem 1.2rem;
+  background: #4a7cfa;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.comment-card {
+  background: #fafafa;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  position: relative;
+}
+
+.comment-author {
+  margin: 0;
+  font-weight: 600;
+  color: #333;
+}
+
+.comment-text {
+  margin: 0.5rem 0 1rem;
+  font-size: 0.95rem;
+}
+.delete-comment-form {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.delete-comment-btn {
+  background: #ff4f4f;
+  color: white;
+  border: none;
+  padding: 0.35rem 0.7rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.delete-comment-btn:hover {
+  background: #d93636;
+}

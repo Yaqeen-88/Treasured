@@ -18,13 +18,12 @@ const authRouter = require("./routes/auth.js")
 
 const postRouter = require("./routes/posts")
 const commentRouter = require("./routes/comments")
+const profileRouter = require('./routes/profiles.js')
 
 const { connected } = require("process")
 
 const port = process.env.PORT || 3000
 
-
-const authController = require('./controllers/auth.js')
 
 
 
@@ -52,9 +51,6 @@ app.use(
 
 app.use(passUserToView)
 
-app.get("/", (req, res) => {
-  res.redirect("/posts")
-})
 
 app.get("/", (req, res) => {
   res.render("index.ejs")
@@ -64,7 +60,7 @@ app.use("/auth", authRouter)
 
 app.use("/posts/:postID/comments", commentRouter)
 app.use("/posts", isSignedIn, postRouter)
-
+app.use('/users/profile', profileRouter)
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`)
 })

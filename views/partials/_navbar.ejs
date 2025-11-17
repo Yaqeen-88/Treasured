@@ -2,8 +2,8 @@
   <h1> Treasured </h1>
   <div class="nav-links">
     <% if (user) { %>
-      <a href="/users/profile">Profile</a>
-      <a href="/posts">View all posts</a>
+      <a href="/posts">Home</a>
+      <a href="/users/profile/<%= user._id %>">My Profile</a>
       <a href="/auth/sign-out">Sign Out</a>
     <% } else { %>
       <a href="/auth/sign-up">Sign Up</a>

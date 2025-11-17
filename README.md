@@ -50,7 +50,7 @@ The Treasured team manages tasks, milestones, and progress using Trello:
 
 ## 🧩 ERD (Entity Relationship Diagram)
 
-![ERD](./Assets/Images/ERD.png)
+![ERD](public/Assets/Images/ERD.png)
 
 
 ## 🔮 Future Improvements

@@ -9,26 +9,21 @@
 <body>
     <header>
         <h1>Welcome, <%= user.username %>!</h1>
-        <nav>
-            <a href="/">Home</a> |
-            <a href="/auth/sign-out">Sign Out</a>
-        </nav>
+        <%- include('../partials/_navbar.ejs') %>
     </header>
 
     <main>
         <section>
-            <h2>Avatar</h2>
             <img
-            src="<%= user.avatar || '/image/defult-avatar.png' %>"
+            src="<%= user.avatar || '/Assets/Images/default-avatar.png' %>"
             alt="profile picture"
             class="profile-avatar"
             >
         </section>
 
         <section class="profile-info">
-            <h2>Profile Informaition</h2>
+            <h2>Profile Information</h2>
             <p><strong>Username:</strong> <%= user.username %></p>
-            <p><strong>Email:</strong> <%= user.email%></p>
         </section>
 
         <section class="profile-bio">
@@ -42,10 +37,47 @@
             </p>
         </section>
 
+
         <section class="profile-stats">
             <h2>Your Activity</h2>
-            <p><strong>Posts created:</strong> <%= postCount %></p>
+            <p><strong>Posts created: <%= postCount %></strong> </p>
         </section>
     </main>
+
+
+    <div class="post-container">
+    <% if (myPosts.length === 0) { %>
+    <p>No posts yet.</p>
+    <% } else { %>
+
+    <% myPosts.forEach(post => { %>
+        <a href="/posts/<%= post._id %>" class="post-card-link">
+        <div class="post-card">
+            <br>
+            <span class="post-category"><%= post.category %></span>
+            <br><br>
+
+            <% if (post.image) { %>
+            <img
+                src="data:image/jpeg;base64,<%= post.image %>"
+                alt="<%= post.title %>"
+                class="post-image"
+            >
+            <% } %>
+
+            <div class="post-content">
+            <div class="post-header">
+                <h2 class="post-title"><%= post.title %></h2>
+            </div>
+
+            <% if (post.description) { %>
+                <p><%= post.description %></p>
+            <% } %>
+            </div>
+        </div>
+        </a>
+    <% }) %>
+    <% } %>
+    </div>
 </body>
 </html>
