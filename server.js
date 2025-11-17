@@ -60,7 +60,7 @@ app.use("/auth", authRouter)
 
 app.use("/posts/:postID/comments", commentRouter)
 app.use("/posts", isSignedIn, postRouter)
-app.use('/users/profile', profileRouter)
+app.use('/users/profile', isSignedIn, profileRouter)
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`)
 })

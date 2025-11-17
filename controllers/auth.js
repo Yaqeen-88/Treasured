@@ -17,7 +17,7 @@ exports.auth_signup_post = async (req, res) => {
 
   const user = await User.create(req.body)
 
-  req.session.user = { username: user.username }
+  req.session.user = { username: user.username, _id: user._id }
   req.session.save(() => {
     res.redirect("/")
   })
