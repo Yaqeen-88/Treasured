@@ -12,6 +12,6 @@ exports.profile_edit_get = async (req,res) => {
 }
 
 exports.profile_edit_post = async (req,res) => {
-  const account = await User.findByIdAndUpdate(req.params.userID, {$push: req.body})
+  const account = await User.findByIdAndUpdate(req.params.userID, req.body, {new: true})
   res.redirect(`/users/profile/${req.params.userID}`)
 }

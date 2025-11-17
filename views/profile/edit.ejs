@@ -6,9 +6,8 @@
   <title>Edit Profile</title>
 </head>
 <body>
-  <!-- form profile pic<acc.p..>, username<acc.username, bio -->
    <form action="/users/profile/<%= account._id %>" method="post" enctype="multipart/form-data">
-    <label for="Profile Picture">Profile Picture:</label>
+    <label for="avatar">Profile Picture:</label>
     <input
     type="file"
     name="avatar"
@@ -16,11 +15,11 @@
     value="<%= account.avatar %>"
     />
 
-    <label for="Username">Username:</label>
+    <label for="username">Username:</label>
     <input 
     type="text"
-    name="Username"
-    id="Username"
+    name="username"
+    id="username"
     value="<%= account.username %>"
     />
 
@@ -28,7 +27,7 @@
     <input
     type="text"
     name="Bio"
-    id="Bio"
+    id="bio"
     value="<%= account.bio %>"
     />
 

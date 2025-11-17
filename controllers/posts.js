@@ -28,9 +28,11 @@ exports.post_create_post = [
       title: req.body.title,
       description: req.body.description,
       category: req.body.category.toLowerCase(),
+      url: req.body.Url,
       image: imageBase64,
       creator: req.session.user._id,
     })
+
     res.redirect("/posts")
   },
 ]
@@ -42,7 +44,6 @@ exports.post_show_get = async (req, res) => {
   const userHasLiked = post.likedBy.some((user) => user.equals(req.session.user._id))
 
   const postCommentsOG = await Comment.find({postID: req.params.postId,}).populate('postID').populate('userID')
-  
   // reverse comments so that it shows new ones at the top
   const postComments = postCommentsOG.toReversed()
   res.render("posts/show.ejs", { post, userHasLiked, postComments })
