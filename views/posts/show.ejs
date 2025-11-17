@@ -25,10 +25,11 @@
 
       <div class= "show-details-container">
         <h3>By:
-        <%= post.creator.username %>
+          <a href="/users/profile/<%= post.creator._id %>"><%= post.creator.username %></a>
+
         </h3>
         <p> <%= post.description %></p>
-        
+        <p><a href="<%= post.url %>">Link</a></p>
       </div>
 
       <div class="likes-container">

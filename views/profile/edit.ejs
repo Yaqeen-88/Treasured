@@ -1,35 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Edit Profile</title>
-  </head>
-  <body>
-    <!-- form profile pic<acc.p..>, username<acc.username, bio -->
-    <form
-      action="/users/profile/<%= account._id %>?_method=PUT"
-      method="post"
-      enctype="multipart/form-data"
-    >
-      <label for="Profile Picture">Profile Picture:</label>
-      <input
-        type="file"
-        name="avatar"
-        id="image"
-        value="<%= account.avatar %>"
-      />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Profile</title>
+</head>
+<body>
+   <form action="/users/profile/<%= account._id %>?_method=PUT"method="post" enctype="multipart/form-data">
+    <label for="avatar">Profile Picture:</label>
+    <input
+    type="file"
+    name="avatar"
+    id="image"
+    value="<%= account.avatar %>"
+    />
 
-      <label for="Username">Username:</label>
-      <input
-        type="text"
-        name="username"
-        id="username"
-        value="<%= account.username %>"
-      />
+    <label for="Username">Username:</label>
+    <input
+    type="text"
+    name="username"
+    id="username"
+    value="<%= account.username %>"
+    />
 
-      <label for="bio">bio:</label>
-      <input type="text" name="bio" id="bio" value="<%= account.bio %>" />
+    <label for="bio">bio:</label>
+    <input
+    type="text"
+    name="bio"
+    id="bio"
+    value="<%= account.bio %>"
+    />
 
       <button type="submit">Update Profile</button>
     </form>

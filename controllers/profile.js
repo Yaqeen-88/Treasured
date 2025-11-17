@@ -6,7 +6,6 @@ exports.profile_index_get = async (req, res) => {
   const myPostsOG = await Post.find({ creator: req.params.userID }).populate("creator")
   const postCount = myPostsOG.length
   const myPosts = myPostsOG.toReversed()
-  
   res.render("profile/index.ejs", { myPosts, postCount, user })
 }
 
@@ -15,7 +14,7 @@ exports.profile_edit_get = async (req, res) => {
   res.render("profile/edit.ejs", { account })
 }
 
-exports.profile_edit_post = async (req, res) => {
+exports.profile_edit_put = async (req, res) => {
   let imageBase64 = null
   if (req.file) {
     imageBase64 = req.file.buffer.toString("base64")

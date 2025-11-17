@@ -29,10 +29,11 @@ exports.post_create_post = async (req, res) => {
       title: req.body.title,
       description: req.body.description,
       category: req.body.category.toLowerCase(),
-      url: req.body.url,
+      url: req.body.Url,
       image: imageBase64,
       creator: req.session.user._id,
     })
+
     res.redirect("/posts")
   }
 
