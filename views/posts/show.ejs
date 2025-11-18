@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/stylesheets/showEdit.css" />
 <link rel="stylesheet" href="/stylesheets/style.css">
+<link rel="stylesheet" href="/stylesheets/showEdit.css" />
   <title><%= post.title %></title>
 </head>
 <body>
@@ -42,13 +42,13 @@
             <%if (userHasLiked) { %>
             <form action="/posts/<%= post._id %>/likes/<%= user._id %>?_method=DELETE" method="POST">
               <button class="round-btn like-btn liked" type="submit">
-                <span class="heart-icon"></span> Unlike
+                <span class="heart-icon">💔</span> Unlike
               </button>
             </form>
             <% } else { %>
             <form action="/posts/<%= post._id %>/likes/<%= user._id %>" method="POST">
               <button class="round-btn like-btn" type="submit">
-                          <span class="heart-icon"></span>Like
+                          <span class="heart-icon">🤍</span>Like
               </button>
             </form>
             <% } %>
@@ -92,10 +92,10 @@
 
           </div>
       <% if (post.creator._id.equals(user._id)) { %>
-      <div class="creator-container" style="margin-top: 10px;">
-        <a href="/posts/<%= post._id %>/edit">Edit</a>
+      <div class="creator-container">
+        <a href="/posts/<%= post._id %>/edit" class="round-btn edit-btn">✏️ Edit</a>
         <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
-          <button type="submit">Delete</button>
+          <button type="submit" class="round-btn delete-btn">🗑️ Delete</button>
         </form>
       <% } %>
       </div>

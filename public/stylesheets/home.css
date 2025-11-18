@@ -8,6 +8,7 @@ h1 {
 
 .post-btn {
   display: block;
+  margin-top: 10px;
   margin-bottom: 40px;
   margin-left: auto;
   margin-right: 30px;
@@ -121,3 +122,110 @@ h1 {
 
 }
 
+
+/* Posts layout + card styling */
+.post-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+}
+
+.post-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.post-card {
+  display: flex;
+  flex-direction: column;
+  background: rgba(251, 243, 218, 0.96); /* soft cream */
+  border-radius: 20px;
+  border: 1px solid #E8EDED;
+  padding: 16px 18px 18px;
+  box-shadow: 0 10px 26px rgba(2, 60, 80, 0.18);
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  break-inside: avoid;
+}
+
+.post-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 34px rgba(2, 60, 80, 0.26);
+}
+
+.post-category {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(203, 156, 156, 0.9); /* #CB9C9C */
+  color: #023C50;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.post-image {
+  width: 100%;
+  border-radius: 14px;
+  object-fit: cover;
+  margin-bottom: 12px;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+
+.post-title {
+  font-size: 1.1rem;
+  color: #023C50;
+}
+
+.post-content p {
+  color: #536B79;
+}
+
+/* Add new post button */
+.post-btn {
+  display: block;
+  margin-bottom: 32px;
+  margin-left: auto;
+  margin-right: 30px;
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #023C50, #536B79);
+  box-shadow: 0 8px 22px rgba(2, 60, 80, 0.35);
+}
+
+.post-btn a {
+  color: #FBF3DA;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.post-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(2, 60, 80, 0.45);
+}
+
+/* Form card styling */
+.form-card {
+  background: rgba(232, 237, 237, 0.95);
+  border-radius: 20px;
+  padding: 24px 28px;
+  box-shadow: 0 12px 30px rgba(2, 60, 80, 0.22);
+  border: 1px solid #E8EDED;
+}
+
+.form-card button {
+  background: linear-gradient(135deg, #023C50, #536B79);
+}

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+
 /* Show page */
 .show-page-container{
   display: flex;
@@ -28,11 +30,11 @@
 
 .show-info-container {
   display: flex;
-  background-color: #c1bfc1;
+  background-color: #fbf3da;
   flex-direction: column;
   align-items: center;
   width: 55%;
-  border: 1px solid #d1d1d1;
+  border: 1px solid #e8eded;
   border-radius: 14px;
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.05) ;
   padding: 30px 40px;
@@ -60,12 +62,12 @@
 }
 
 .show-details-container {
-  border: 1px solid #cfcece;
-  border-radius: 10px;
+  border: 1px solid #e8eded;
+  border-radius: 14px;
   padding: 20px 30px;
   width: 100%;
   margin: 20px 0;
-  background-color: #e7e1e3;
+  background-color: #fcfaf3;
 }
 
 .show-details-container h3 {
@@ -108,19 +110,23 @@
 .round-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  padding: 9px 16px;
+  padding: 9px 18px;
   border-radius: 999px;
   text-decoration: none;
   font-weight: 600;
-  border: 1px solid #e2e6f0;
-  background-color: #c1bfc1;
-  color: #2a3644;
+  border: none;
   cursor: pointer;
+  font-size: 0.9rem;
+  background-color: #536B79;
+  color: #FBF3DA;
+  box-shadow: 0 8px 18px rgba(2, 60, 80, 0.18);
 }
 
 .round-btn:hover {
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 26px rgba(2, 60, 80, 0.28);
+  transform: translateY(-1px);
 }
 
 .round-btn:active {
@@ -130,19 +136,28 @@
 
 /* like button */
 .like-btn {
-  background-color: #f3eefc;
+  background-color: #cc3a3a;
   border-color: #e4dcfb;
+  color: white;
+}
+
+button.like-btn .heart-icon {
+  font-size: 1rem;
 }
 
 .like-btn.liked {
-  background-color: #ffeaf0;
+  background-color: #f7c5cc;
   border-color: #ffd3df;
-  color: #b01f4f;
+  color: #023c50;
+}
+
+button.like-btn.liked .heart-icon {
+  font-size: 1rem;
 }
 
 /* comment button */
 .comment-btn {
-  background: linear-gradient(90deg, #cfe9ff 0%, #e3f6ff 100%);
+  background: linear-gradient(90deg, #38a5e0 0%, #85d6fb 100%);
   border: 1px solid #cde6ff;
   color: #1f3854;
 }
@@ -152,11 +167,30 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 14px;
-  margin-top: 20px;
+  gap: 16px;
+  margin-top: 24px;
 }
 
-.creator-container a {
+.creator-container .edit-btn {
+  background-color: #536b79;
+  color: #fbf3da;
+  font-weight: 600;
+}
+
+.creator-container .edit-btn:hover{
+  background-color: #023c50;
+}
+
+.creator-container .delete-btn {
+  background-color: #cb9c9c;
+  color: #023c50;
+}
+
+.creator-container .delete-btn:hover{
+  background-color: #b27c7c;
+}
+
+/* .creator-container a {
   text-align: center;
   padding: 8px 22px;
   background-color: #6f8dae;
@@ -169,7 +203,7 @@
 
 .creator-container a:hover {
   background-color: #1d3043;
-}
+} */
 
 
 /* Edit page */
@@ -220,6 +254,7 @@
   padding: 8px 10px;
   font-family: "Quicksand", sans-serif;
   font-size: 1em;
+  background-color: #fcfaf3;
 }
 
 textarea {
@@ -335,4 +370,93 @@ textarea {
 
 .delete-comment-btn:hover {
   background: #d93636;
+}
+
+
+
+
+.edit-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 50px 20px;
+  min-height: 85vh;
+}
+
+.edit-form-container {
+  width: 60%;
+  max-width: 700px;
+  background-color: #FBF3DA;  /* soft cream */
+  border: 1px solid #E8EDED;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(2, 60, 80, 0.18);
+  padding: 30px 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-form-container h1 {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #023C50;
+}
+
+/* Fields */
+.form-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.form-row label {
+  font-size: 0.95em;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #536B79;
+}
+
+.form-row input,
+.form-row textarea,
+.form-row select {
+  border: 1px solid #BEBEBE;
+  border-radius: 10px;
+  padding: 8px 10px;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1em;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Buttons */
+.btn-row {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+/* BOTH buttons share base shape via .round-btn */
+.primary-btn {
+  background: linear-gradient(135deg, #023C50, #536B79);
+  color: #FBF3DA;
+}
+
+.primary-btn:hover {
+  background: linear-gradient(135deg, #536B79, #023C50);
+}
+
+/* Back button */
+.secondary-btn {
+  background-color: #CB9C9C;
+  color: #023C50;
+}
+
+.secondary-btn:hover {
+  background-color: #B27C7C;
 }

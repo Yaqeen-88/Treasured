@@ -4,9 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>All Posts</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
   <link rel="stylesheet" href="/stylesheets/home.css" />
-<link rel="stylesheet" href="/stylesheets/style.css">
-
 </head>
 <body>
     <%- include('../partials/_navbar.ejs') %>
@@ -19,18 +18,18 @@
     <% if (posts.length === 0) { %>
       <p>No posts yet.</p>
     <% } else { %>
-      
+
       <% posts.forEach(post => { %>
         <a href="/posts/<%= post._id %>" class="post-card-link">
           <div class="post-card">
             <br>
             <span class="post-category"><%= post.category %></span>
             <br><br>
-            
+
             <% if (post.image) { %>
-              <img 
-                src="data:image/jpeg;base64,<%= post.image %>" 
-                alt="<%= post.title %>" 
+              <img
+                src="data:image/jpeg;base64,<%= post.image %>"
+                alt="<%= post.title %>"
                 class="post-image"
               >
             <% } %>

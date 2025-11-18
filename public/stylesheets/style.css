@@ -6,52 +6,43 @@ body{
   flex-direction: column;
   background-size: cover;
   background-repeat: no-repeat;
-  background: linear-gradient(225deg,rgba(239, 239, 230, 1) 0%, rgba(203, 156, 156, 1) 1%, rgba(83, 107, 121, 1) 81%);
+  background: linear-gradient(
+    225deg, #fbf3da 0%, #e8eded 35%, #cb9c9c 70%, #536b79);
   padding: 20px;
   max-width: 100%;
 
 }
 
 
-button {
+button:not(.like-btn):not(.edit-btn):not(.delete-btn):not(.comment-btn):not(.post-btn) {
   border: none;
   border-radius: 8px;
   color: white;
   font-weight: bold;
-  text-decoration: none;
- background-color: #afacaf;
+  background-color: #274c9c;
   padding: 7px 15px;
   margin: 10px 0;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: rgb(157, 155, 155);
-  opacity: 60%;
+button:not(.like-btn):not(.edit-btn):not(.delete-btn):not(.comment-btn):hover {
+  background-color: black;
   color: white;
 }
-
 
 /* Style for nav */
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 30px;
-  border-radius: 10px;
-  margin-bottom: 40px;
+  background: rgba(2, 60, 80, 0.92);
+  border-radius: 999px;
+  padding: 10px 22px;
+  box-shadow: 0 10px 30px rgba(2, 60, 80, 0.4);
 }
-
-
-nav h1 {
-  color: #fff;
-  font-size: 1.8rem;
-  margin: 0;
-}
-
 
 nav a {
-  color: #fff;
+  color: #FBF3DA;
   text-decoration: none;
   margin-left: 20px;
   font-size: 1rem;
@@ -59,8 +50,16 @@ nav a {
 }
 
 nav a:hover {
-  color: #ece7e7;
+  color: #fbf3da;
+  text-decoration: underline;
   transform: scale(1.05);
+}
+
+
+nav h1 {
+  color: #fff;
+  font-size: 1.8rem;
+  margin: 0;
 }
 
 nav .nav-links {
