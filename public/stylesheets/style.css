@@ -10,9 +10,16 @@ body{
     225deg, #fbf3da 0%, #e8eded 35%, #cb9c9c 70%, #536b79);
   padding: 20px;
   max-width: 100%;
-
+  justify-items: center;
 }
 
+.main-title {
+  text-align: center;
+}
+
+.welcome-box {
+  text-align: center;
+}
 
 button:not(.like-btn):not(.edit-btn):not(.delete-btn):not(.comment-btn):not(.post-btn) {
   border: none;
