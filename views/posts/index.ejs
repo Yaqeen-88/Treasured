@@ -19,18 +19,19 @@
     <% if (posts.length === 0) { %>
       <p>No posts yet.</p>
     <% } else { %>
-      
+
       <% posts.forEach(post => { %>
         <a href="/posts/<%= post._id %>" class="post-card-link">
           <div class="post-card">
             <br>
+            <img id="category" alt="category">
             <span class="post-category"><%= post.category %></span>
             <br><br>
-            
+
             <% if (post.image) { %>
-              <img 
-                src="data:image/jpeg;base64,<%= post.image %>" 
-                alt="<%= post.title %>" 
+              <img
+                src="data:image/jpeg;base64,<%= post.image %>"
+                alt="<%= post.title %>"
                 class="post-image"
               >
             <% } %>
