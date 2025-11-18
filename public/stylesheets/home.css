@@ -66,12 +66,11 @@ h1 {
   color: #efebeb;
 }
 
-.post-category {
-  font-size: 0.9rem;
-  color: white;
-  border-radius: 12px;
-  padding: 10px;
-  margin-left: 200px;
+
+.cat-img img{
+  margin-left: 170px;
+  margin-top: -100px;
+  max-width: 130px;
 }
 
 /* new.ejs */

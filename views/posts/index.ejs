@@ -23,9 +23,26 @@
         <a href="/posts/<%= post._id %>" class="post-card-link">
           <div class="post-card">
             <br>
-            <img id="category" alt="category">
-            <span class="post-category"><%= post.category %></span>
-            <br><br>
+            <div class="cat-img">
+                          <% if (post.category === 'food') { %>
+  <img src="/Assets/Images/Category/food.png" alt="food">
+<% } else if (post.category === 'songs') { %>
+  <img src="/Assets/Images/Category/song.png" alt="songs">
+<% } else if (post.category === 'movies') { %>
+  <img src="/Assets/Images/Category/movie.png" alt="movies">
+<% } else if (post.category === 'pets') { %>
+  <img src="/Assets/Images/Category/pet.png" alt="pets">
+<% } else if (post.category === 'moment') { %>
+  <img src="/Assets/Images/Category/moment.png" alt="moment">
+<% } else if (post.category === 'quote') { %>
+  <img src="/Assets/Images/Category/quote.png" alt="quote">
+<% } else if (post.category === 'spot') { %>
+  <img src="/Assets/Images/Category/spot.png" alt="spot">
+<% } else if (post.category === 'shows') { %>
+  <img src="/Assets/Images/Category/show.png" alt="shows">
+<% } %>
+            </div>
+            <br>
 
             <% if (post.image) { %>
               <img

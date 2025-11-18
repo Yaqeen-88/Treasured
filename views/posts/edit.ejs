@@ -23,12 +23,17 @@
         <div class="form-row">
           <label for="category">Category</label>
           <select name="category" id="category" required>
-            <option value="">Select category</option>
-            <option value="Shows" <%= post.category === 'Shows' ? 'selected' : '' %>>Shows</option>
-            <option value="Books" <%= post.category === 'Books' ? 'selected' : '' %>>Books</option>
-            <option value="Quotes" <%= post.category === 'Quotes' ? 'selected' : '' %>>Quotes</option>
-            <option value="Music" <%= post.category === 'Music' ? 'selected' : '' %>>Music</option>
-          </select>
+
+    <option value="">Select category</option>
+    <option value="songs"  <%= post.category === 'songs'  ? 'selected' : '' %>>Songs</option>
+    <option value="movies" <%= post.category === 'movies' ? 'selected' : '' %>>Movies</option>
+    <option value="pets"   <%= post.category === 'pets'   ? 'selected' : '' %>>Pets</option>
+    <option value="moment" <%= post.category === 'moment' ? 'selected' : '' %>>Moment</option>
+    <option value="food"   <%= post.category === 'food'   ? 'selected' : '' %>>Food</option>
+    <option value="quote"  <%= post.category === 'quote'  ? 'selected' : '' %>>Quote</option>
+    <option value="shows"  <%= post.category === 'shows'  ? 'selected' : '' %>>Shows</option>
+    <option value="spot"   <%= post.category === 'spot'   ? 'selected' : '' %>>Spot</option>
+  </select>
         </div>
 
         <div class="form-row">
