@@ -2,74 +2,100 @@
 
 body{
   font-family: "Quicksand", sans-serif;
-  display: flex;
-  flex-direction: column;
+  margin: 0;
+  padding: 0; 
+  background: linear-gradient(225deg,rgba(239, 239, 230, 1) 0%, rgba(203, 156, 156, 1) 40%, rgba(83, 107, 121, 1) 100%);
   background-size: cover;
-  background-repeat: no-repeat;
-  background: linear-gradient(225deg,rgba(239, 239, 230, 1) 0%, rgba(203, 156, 156, 1) 1%, rgba(83, 107, 121, 1) 81%);
-  padding: 20px;
-  max-width: 100%;
-
+  background-attachment: fixed;
+  text-align: center;
 }
 
-
-button {
-  border: none;
-  border-radius: 8px;
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
- background-color: #afacaf;
-  padding: 7px 15px;
-  margin: 10px 0;
-  cursor: pointer;
+.container {
+  width: 90%;
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
 }
 
-button:hover {
-  background-color: rgb(157, 155, 155);
-  opacity: 60%;
-  color: white;
+.main-title {
+  font-size: 28px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.welcome-text {
+  color: #fff;
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.btn {
+padding: 10px 20px;
+border-radius: 6px;
+text-decoration: none;
+font-weight: bold;
+display: inline-block;
+margin: 5px;
+}
+
+.primary-btn {
+  background-color: #556e7a;
+  color: #fff;
+}
+
+.primary-btn:hover {
+  background-color: #455962;
+}
+
+.secondary-btn {
+  background-color: #c89b9b;
+  color: #fff;
+}
+
+.secondary-btn:hover {
+  background-color: #b28888;
+}
+
+.or {
+  color: #fff;
+  margin: 0 5px;
+}
+
+.welcome-box {
+  margin-top: 20px;
 }
 
 
 /* Style for nav */
 nav {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  border-radius: 10px;
-  margin-bottom: 40px;
+width: 100%;
+padding: 15px 25px;
+background: rgba(255, 255, 255, 0.2);
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
+margin-bottom: 20px;
+display: flex;
+justify-content: space-between;
+align-items: center;
 }
 
 
 nav h1 {
-  color: #fff;
-  font-size: 1.8rem;
-  margin: 0;
+margin: 0;
+font-size: 20px;
+color: #fff;
 }
 
-
 nav a {
-  color: #fff;
+  color: #333;
   text-decoration: none;
-  margin-left: 20px;
-  font-size: 1rem;
-  transition: color 0.2s ease, transform 0.2s ease;
+  margin-left: 15px;
 }
 
 nav a:hover {
-  color: #ece7e7;
-  transform: scale(1.05);
-}
-
-nav .nav-links {
-  display: flex;
-  align-items: center;
-}
-
-
-.profile-avatar{
-  max-width: 450px;
-
+  text-decoration: underline;
+  color: #000;
 }
