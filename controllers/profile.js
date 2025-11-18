@@ -3,19 +3,29 @@ const User = require("../models/user")
 
 exports.profile_index_get = async (req, res) => {
   const userProfile = await User.findById(req.params.userID)
-  const myPostsOG = await Post.find({ creator: req.params.userID }).populate("creator")
+  // console.log(userProfile.avatar)
+  const myPostsOG = await Post.find({ creator: req.params.userID }).populate(
+    "creator"
+  )
+  console.log(userProfile.avatar)
   const postCount = myPostsOG.length
   const myPosts = myPostsOG.toReversed()
   if (!userProfile.avatar) {
     userProfile.avatar = "/Assets/Images/default-avatar.png"
-  }else {
-    userProfile.avatar = `data:image/jpeg;base64${userProfile.avatar}`
+  } else {
+    userProfile.avatar = `data:image/jpeg;base64,${userProfile.avatar}`
   }
+  // console.log(userProfile.avatar)
   res.render("profile/index.ejs", { myPosts, postCount, userProfile })
 }
 
 exports.profile_edit_get = async (req, res) => {
   const account = await User.findById(req.params.userID)
+  if (!account.avatar) {
+    account.avatar = "/Assets/Images/default-avatar.png"
+  } else {
+    account.avatar = `data:image/jpeg;base64,${account.avatar}`
+  }
   res.render("profile/edit.ejs", { account })
 }
 

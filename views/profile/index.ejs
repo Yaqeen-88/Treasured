@@ -8,26 +8,14 @@
     <link rel="stylesheet" href="/stylesheets/profile.css">
 </head>
 <body>
-    <header>
         <%- include('../partials/_navbar.ejs') %>
-    </header>
 
-    <main>
-        <% if(userProfile._id.equals(user._id)){ %>
-            <a href="/users/profile/<%= userProfile._id %>/edit">Edit profile</a>
-        <section>
-            <% } %>
+
+            <div class="profile-info">
             <img src="<%= userProfile.avatar %>" alt="profile picture" class="profile-avatar">
-        </section>
-
-
-
-        <section class="profile-info">
-            <p><strong>Username:</strong> <%= userProfile.username %></p>
-        </section>
-
-        <section class="profile-bio">
-
+            <div class="profile-data">
+            <strong><%= userProfile.username %></strong>
+            <div class="profile-bio">
             <p>
                 <% if (userProfile.bio) { %>
                     <%= userProfile.bio %>
@@ -35,21 +23,22 @@
                         No bio yet.
                         <% } %>
             </p>
-        </section>
+        </div>
+            </div>
 
+        </div>
+        <div class="profile-stats">
+            <h2><%= postCount %> Cards</h2>
 
-        <section class="profile-stats">
-            <h2>Cards</h2>
-            <p><strong>Cards created: <%= postCount %></strong> </p>
-        </section>
-    </main>
+        </div>
 
 
     <div class="post-container">
+
     <% if (!myPosts.length) { %>
     <p>No posts yet.</p>
-    <% } else { %>
 
+    <% } else { %>
     <% myPosts.forEach(post => { %>
         <a href="/posts/<%= post._id %>" class="post-card-link">
         <div class="post-card">
@@ -75,9 +64,17 @@
             <% } %>
             </div>
         </div>
-        </a>
     <% }) %>
     <% } %>
+    <div class="edit-profile">
+        <% if(userProfile._id.equals(user._id)){ %>
+            <button>
+                <a href="/users/profile/<%= userProfile._id %>/edit">Edit profile</a>
+            </button>
+
+            <% } %>
+    </div>
+
     </div>
 </body>
 </html>

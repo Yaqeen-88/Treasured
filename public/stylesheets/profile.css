@@ -1,3 +1,21 @@
 .profile-avatar{
-  max-width: 300px;
+  width: 150px;
+    height: 150px;
+    clip-path: circle();
+    overflow: hidden;
+}
+
+.profile-info{
+  display: flex;
+  padding: 10px;
+  margin: 20px;
+}
+
+.profile-data{
+  padding: 10px;
+}
+
+.edit-profile a {
+  text-decoration: none;
+  color: black;
 }

@@ -5,17 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edit Profile</title>
   <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/profile.css">
 </head>
 <body>
   <form action="/users/profile/<%= account._id %>?_method=PUT"method="post" enctype="multipart/form-data">
-    <label for="avatar">Profile Picture:</label>
+    <img src="<%= account.avatar %>" alt="User Avatar" class="profile-avatar">
+    <br>
     <input
     type="file"
     name="avatar"
     id="image"
     value="<%= account.avatar %>"
     />
-
+    <br>
     <label for="Username">Username:</label>
     <input
     type="text"
@@ -23,7 +25,7 @@
     id="username"
     value="<%= account.username %>"
     />
-
+<br>
     <label for="bio">bio:</label>
     <input
     type="text"
@@ -31,7 +33,7 @@
     id="bio"
     value="<%= account.bio %>"
     />
-
+    <br>
       <button type="submit">Update Profile</button>
     </form>
   </body>
