@@ -26,6 +26,16 @@
         </div>
             </div>
 
+             <div class="edit-profile">
+        <% if(userProfile._id.equals(user._id)){ %>
+            <button>
+                <a href="/users/profile/<%= userProfile._id %>/edit">Edit profile</a>
+            </button>
+
+            <% } %>
+    </div>
+
+
         </div>
         <div class="profile-stats">
             <h2><%= postCount %> Cards</h2>
@@ -33,9 +43,7 @@
         </div>
 
     <section class="profile-posts">
-        <div class="profile-posts-header">
-            <h2>Cards by <%= userProfile.username %></h2>
-        </div>
+       
 
     <div class="post-container">
 
@@ -64,15 +72,7 @@
                 <% }) %>
             <% } %>
         </div>
-    <div class="edit-profile">
-        <% if(userProfile._id.equals(user._id)){ %>
-            <button>
-                <a href="/users/profile/<%= userProfile._id %>/edit">Edit profile</a>
-            </button>
-
-            <% } %>
-    </div>
-
+   
     </div>
 </body>
 </html>
