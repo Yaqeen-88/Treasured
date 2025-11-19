@@ -13,7 +13,6 @@
     <div class="show-page-container">
       <% if (post.category !== 'quote' && post.image) { %>
       <div class="show-img">
-        <!-- Category icon on top-right of the image -->
         <div class="show-cat-img">
           <% if (post.category === 'food') { %>
           <img src="/Assets/Images/Category/food.png" alt="food" />
@@ -34,7 +33,6 @@
           <% } %>
         </div>
 
-        <!-- Main post image -->
         <img
           src="data:image/jpeg;base64,<%= post.image %>"
           alt="<%= post.title %>"
@@ -49,14 +47,20 @@
         </div>
 
         <div class="show-details-container">
-          <h3>
-            By:
+          <p class="show-by">
+            <span>By:</span>
             <a href="/users/profile/<%= post.creator._id %>"
               ><%= post.creator.username %></a
             >
-          </h3>
-          <p><%= post.description %></p>
-          <p><a href="<%= post.url %>">Link</a></p>
+          </p>
+
+          <% if (post.description) { %>
+          <p class="show-description"><%= post.description %></p>
+          <% } %> <% if (post.url) { %>
+          <p class="show-link">
+            <a href="<%= post.url %>" target="_blank" rel="noopener">Link</a>
+          </p>
+          <% } %>
         </div>
 
         <div class="likes-container">
