@@ -110,12 +110,27 @@
           <div class="comments-list">
             <% postComments.forEach(comment => { %>
             <div class="comment-card">
-              <img src="<%= comment.userID.avatar %>" alt="commenter's avatar" class="cmt-avatar">
+              <% if (comment.userID.avatar) { %>
+          <img
+            src="data:image/jpeg;base64,<%= comment.userID.avatar %>"
+            alt="commenter's avatar"
+            class="cmt-avatar"
+          >
+        <% } else { %>
+          <img
+            src="/Assets/Images/default-avatar.png"
+            alt="commenter's avatar"
+            class="cmt-avatar"
+          >
+        <% } %>
+
               <div class="comment-header">
                 <h5 class="comment-author"><%= comment.userID.username %></h5>
+                <p class="comment-text"><%= comment.description %></p>
               </div>
 
-              <p class="comment-text"><%= comment.description %></p>
+
+
 
               <% if(comment.userID._id.equals(user._id)) { %>
               <form

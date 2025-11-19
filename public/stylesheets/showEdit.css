@@ -375,18 +375,21 @@ textarea {
   max-width: 100px;
 }
 
-.comment-author {
+.comment-author{
   margin: 0;
   font-weight: 600;
   color: #333;
-  padding-top: 10px;
+  padding-top: 30px;
+  margin-right: 30px;
+
 }
 
 .comment-text {
   margin: 0.5rem 0 1rem;
   font-size: 0.95rem;
-  padding-top: 30px;
-  margin-left: -10px;
+  padding-top: 10px;
+  margin-left: 15px;
+
 }
 
 .delete-comment-form {
