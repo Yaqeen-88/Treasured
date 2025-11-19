@@ -363,17 +363,26 @@ textarea {
   border-radius: 10px;
   border: 1px solid #eee;
   position: relative;
+  display: flex;
+}
+
+.cmt-avatar{
+  clip-path: circle();
+  max-width: 100px;
 }
 
 .comment-author {
   margin: 0;
   font-weight: 600;
   color: #333;
+  padding-top: 10px;
 }
 
 .comment-text {
   margin: 0.5rem 0 1rem;
   font-size: 0.95rem;
+  padding-top: 30px;
+  margin-left: -10px;
 }
 .delete-comment-form {
   position: absolute;

@@ -56,7 +56,9 @@
             >
           </h3>
           <p><%= post.description %></p>
+          <% if(post.url) { %>
           <p><a href="<%= post.url %>">Link</a></p>
+          <% } %>
         </div>
 
         <div class="likes-container">
@@ -106,6 +108,7 @@
           <div class="comments-list">
             <% postComments.forEach(comment => { %>
             <div class="comment-card">
+              <img src="<%= comment.userID.avatar %>" alt="commenter's avatar" class="cmt-avatar">
               <div class="comment-header">
                 <h5 class="comment-author"><%= comment.userID.username %></h5>
               </div>
