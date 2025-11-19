@@ -58,9 +58,11 @@ app.get("/", (req, res) => {
 
 app.use("/auth", authRouter)
 
+app.use(isSignedIn)
 app.use("/posts/:postID/comments", commentRouter)
-app.use("/posts", isSignedIn, postRouter)
-app.use('/users/profile', isSignedIn, profileRouter)
+app.use("/posts", postRouter)
+app.use('/users/profile',profileRouter)
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`)
 })

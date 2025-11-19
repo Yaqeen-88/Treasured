@@ -91,11 +91,17 @@ h1 {
   z-index: 10;
 }
 
-.cat-img img {
-  max-width: 70px;
-  height: auto;
-  margin: 0;
+#song-img{
+  max-width: 40px;
 }
+
+.cat-img img {
+  max-width: 60px;
+  height: auto;
+  margin-right: -40px;
+  margin-top: -40px;
+}
+
 
 /* Post image */
 .post-image {
@@ -191,7 +197,7 @@ h1 {
 .form-card textarea {
   padding: 10px 12px;
   border-radius: 12px;
-  border: 1px solid #E0E5E5;
+  border: 0.01px solid #E0E5E5;
   width: 100%;
   margin-bottom: 18px;
   font-family: "Quicksand", sans-serif;
@@ -204,6 +210,19 @@ h1 {
 .form-card textarea:focus {
   border-color: #536B79;
   box-shadow: 0 0 0 2px rgba(83, 107, 121, 0.25);
+}
+
+::file-selector-button {
+  background-color: #274c9c;
+  background: linear-gradient(135deg, #023C50, #536B79);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+::file-selector-button:hover {
+  background-color: #536B79;
 }
 
 /* Button */
