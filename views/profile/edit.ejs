@@ -4,10 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edit Profile</title>
-  <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
   <link rel="stylesheet" href="/stylesheets/profile.css">
 </head>
 <body>
+  <%- include('../partials/_navbar.ejs') %>
+
   <form action="/users/profile/<%= account._id %>?_method=PUT"method="post" enctype="multipart/form-data">
     <img src="<%= account.avatar %>" alt="User Avatar" class="profile-avatar">
     <br>
